@@ -20,3 +20,17 @@ Obstacle generation on the other hand is done via procedural generation:
 
 - The obstacles used are tetris blocks drawn by me in the style of pixel art 
 - Obstacle position is randomly determined across a long rectangle from the starting window to far east from it, essentially generating the level to the end.
+
+## Procedularal Generation
+There are background elements to the game such as the black holes amd lightning strikes during the game which are generated procedurally through code.
+
+### Lightning Strikes
+The lightning itself is a composition of lines that travel from the top to the bottom of the screen, starting from a single point.
+
+1. The line travels a fixed distance down but a random x amount left or right from its starting position
+2. It then make a choice on if the next line will consist of 2 separate lines or only 1
+3. It then repeats step 1 and 2 for the following lines until it reaches the bottom of the screen
+
+This create the image of the lightning, we can save this generation of a lightning strike via a random seed, then during the game we flash the image in random intervals to give the impression of a lightning strike.
+
+### Black Holes
