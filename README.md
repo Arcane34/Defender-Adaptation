@@ -21,6 +21,17 @@ Obstacle generation on the other hand is done via procedural generation:
 - The obstacles used are tetris blocks drawn by me in the style of pixel art 
 - Obstacle position is randomly determined across a long rectangle from the starting window to far east from it, essentially generating the level to the end.
 
+### Collision Detection
+Collision Detection is then required for the game to function, collision detection is essentially checking if there is overlap between objects where in most occasions both player and enemies along with any structures will have a collision rectangle or collision point. 
+
+However, checking collision with every other object is an arduous process and wastes a lot of CPU cycles on objects that are too far to be checked for collision.
+
+There are ways to optimise this ofcourse, a few ways I know are:
+- Only checking collision with objects that are on screen 
+- Doing a binary search to find objects in close proximity to the player and checking collision with those
+
+I chose to take the second option and did a binary search on all enemy objects until I get to the object near the player to check collision.
+
 ## Procedularal Generation
 There are background elements to the game such as the black holes amd lightning strikes during the game which are generated procedurally through code.
 
@@ -36,3 +47,12 @@ This create the image of the lightning, we can save this generation of a lightni
 ![](https://github.com/Arcane34/Defender-Adaptation/blob/main/Lightning-Gen-Preview.gif)
 
 ### Black Holes
+The black holes are generated via recursion and random generation. The generation consists of 5 steps:
+- Generating the star layer
+- Generating a blackhole mask into the star layer
+- Generating multiple blackholes layered on top of each other
+- Adding outline to the blackhole
+- Moving the object as a whole
+
+
+
