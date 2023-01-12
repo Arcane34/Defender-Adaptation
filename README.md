@@ -49,10 +49,24 @@ This create the image of the lightning, we can save this generation of a lightni
 ### Black Holes
 The black holes are generated via recursion and random generation. The generation consists of 5 steps:
 - Generating the star layer
-- Generating a blackhole mask into the star layer
-- Generating multiple blackholes layered on top of each other
 - Adding outline to the blackhole
+- Generating a blackhole mask into the star layer
 - Moving the object as a whole
+- Generating multiple blackholes layered on top of each other
 
 
+#### 1. Stars
+![](https://github.com/Arcane34/Defender-Adaptation/blob/main/starsPrev.jpg)
+
+#### 2. Outline
+![](https://github.com/Arcane34/Defender-Adaptation/blob/main/outlinePrev.gif)
+
+#### 3. Blackhole Mask
+![](https://github.com/Arcane34/Defender-Adaptation/blob/main/outlineStarPrev.gif)
+
+#### 4. Moving Blackholes
+![](https://github.com/Arcane34/Defender-Adaptation/blob/main/movementPrev.gif)
+
+#### 5. Recursive Blackholes
+![](https://github.com/Arcane34/Defender-Adaptation/blob/main/recursionPrev.gif)
 
