@@ -47,6 +47,9 @@ This create the image of the lightning, we can save this generation of a lightni
 ![](https://github.com/Arcane34/Defender-Adaptation/blob/main/Lightning-Gen-Preview.gif)
 
 ### Black Holes
+The black holes are also inspired from the ame FEZ where the game showed blackholes as obstacles for the player, contrary to this adaptation where they are background elements.
+However the blackholes of FEZ are minimalistically designed, having a basic border, a glitch effect and a parallax effect with the stars shown inside. This design works for the game as the game is all about change in perspective and the blackholes can transform accordingly creating a visually pleasing effect but as this adaptation of Defender is 2 dimensional without a change in perspective a different design needed to be made which led to this.
+
 The black holes are generated via recursion and random generation. The generation consists of 5 steps:
 - Generating the star layer
 - Adding outline to the blackhole
@@ -56,17 +59,27 @@ The black holes are generated via recursion and random generation. The generatio
 
 
 #### 1. Stars
+Generating the star layer is simple as it only consists of generating 280 Star objects which requires the creating 280 random (x,y) coordinates within the screen's boundaries via a random seed. After that they are displayed onto the screen via the object's show function which draws a rect on screen.
+
 ![](https://github.com/Arcane34/Defender-Adaptation/blob/main/starsPrev.jpg)
 
 #### 2. Outline
+Generating the outline of the blackhole was a bit more difficult as I decided it needed to mimic a glitch effect. My visualisation of the glitch effect was the red green and blue part of the hole being separated and moved out of place at the edges, so I created the outline by having 3 rectangles that are coloured red green and blue respectively that are drawn rotated by a random amount within the range of -0.05 to 0.05 radians. Finally, a black square is drawn at the centre which blends in with the black background creating the blackhole.
+
 ![](https://github.com/Arcane34/Defender-Adaptation/blob/main/outlinePrev.gif)
 
 #### 3. Blackhole Mask
+Generating the blackhole mask consisted of essentially drawing the stars only when its coordinates were located within the boundaries of any blackhole. This is done via a for loop that essentially checks the collision between any star and blackhole object, when this occurs the star object's show function is called otherwise it will not be shown thereby creating the mask effect.
+
 ![](https://github.com/Arcane34/Defender-Adaptation/blob/main/outlineStarPrev.gif)
 
 #### 4. Moving Blackholes
+Moving the blackhole objects was done simply via a random assignment of negative x velocities which decreases the x value of the object by a set amount everytime the draw function is called.
+
 ![](https://github.com/Arcane34/Defender-Adaptation/blob/main/movementPrev.gif)
 
 #### 5. Recursive Blackholes
 ![](https://github.com/Arcane34/Defender-Adaptation/blob/main/recursionPrev.gif)
+
+#### Creation of Blackhole Objects
 
