@@ -93,5 +93,12 @@ Most of the sprites regarding the player are digitally drawn however the propuls
 
 Particles also change colour as time passes after a particle is created, along with the particle's alpha value. This creates the effect of a flame burning more impurely over time changing from red to yellow as it moves away from the source and the alpha value change is the flame disappearing, when any particle's alpha value is below 0 its object is destroyed and removed so as to not slow down the system.
 
+Particle system before adaptation for project:
+
+![](https://github.com/Arcane34/Defender-Adaptation/blob/main/particlePrev.gif)
+
+Particle system in adapted game:
+![](https://github.com/Arcane34/Defender-Adaptation/blob/main/rocketParticlePrev.gif)
+
 ### Summary
 This project utilises procedural generation, collision detection, particle simulation, recursion and more to create an adaptation of the game Defender from 1981, with its art style borrowing from the game FEZ.
