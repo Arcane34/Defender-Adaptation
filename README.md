@@ -98,6 +98,7 @@ Particle system before adaptation for project:
 ![](https://github.com/Arcane34/Defender-Adaptation/blob/main/particlePrev.gif)
 
 Particle system in adapted game:
+
 ![](https://github.com/Arcane34/Defender-Adaptation/blob/main/rocketParticlePrev.gif)
 
 ### Summary
