@@ -22,7 +22,7 @@ Obstacle generation on the other hand is done via procedural generation:
 - Obstacle position is randomly determined across a long rectangle from the starting window to far east from it, essentially generating the level to the end.
 
 ### Collision Detection
-Collision Detection is then required for the game to function, collision detection is essentially checking if there is overlap between objects where in most occasions both player and enemies along with any structures will have a collision rectangle or collision point. 
+Collision Detection is then required for the game to function, collision detection is essentially checking if there is overlap between objects where in most occasions both player and enemies along with any structures will have a collision rectangle or collision point. Other times a collision circle is simulated by checking the distance between objects than the overlap of shapes.
 
 However, checking collision with every other object is an arduous process and wastes a lot of CPU cycles on objects that are too far to be checked for collision.
 
@@ -30,7 +30,7 @@ There are ways to optimise this ofcourse, a few ways I know are:
 - Only checking collision with objects that are on screen 
 - Doing a binary search to find objects in close proximity to the player and checking collision with those
 
-I chose to take the second option and did a binary search on all enemy objects until I get to the object near the player to check collision.
+I chose to take the second option and did a binary search on all enemy objects until I get to the object closest to the player to check if the distance is smaller than a fixed constant being the collision constant.
 
 ## Procedularal Generation
 There are background elements to the game such as the black holes amd lightning strikes during the game which are generated procedurally through code.
@@ -79,7 +79,19 @@ Moving the blackhole objects was done simply via a random assignment of negative
 ![](https://github.com/Arcane34/Defender-Adaptation/blob/main/movementPrev.gif)
 
 #### 5. Recursive Blackholes
+The blackholes are created similarly to the lightning in that blackholes are generated recursively from the parameters of the original blackhole such that it resides on the edges of the original blackhole, this has a random chance of happening multiple times which helps to create variety in the shapes of the objects. I also ensure that the black square of each blackhole is drawn last such that the objects seem to merge when displayed rather than having overlapping blackholes each with their outline clashing with the other.
+
 ![](https://github.com/Arcane34/Defender-Adaptation/blob/main/recursionPrev.gif)
 
 #### Creation of Blackhole Objects
+The creation of the blackhole objects is done differently to how the obstacles of the game are generated in that the game creates new blackholes at the right edge of the screen if the total number of blackholes visible is less than 5, after any blackhole object reaches further left from the left edge of the screen such that the player is unable to see it, the object will be destroyed and removed. 
 
+This creates the illusion of an infinite background regardless of how long the player plays the game.
+
+### Player Ship
+Most of the sprites regarding the player are digitally drawn however the propulsion particles are procedurally generated. This is done via a basic system of particle emission from the (x,y) coordinate of the end of the rocket of the player sprite. This particle emission has a random range of -1 to -3 x velocity and a random range of -0.5 to 0.5 for its y velocity per particle, this creates a burst of particles with a small cone shape as the width is controlled by the y velocity and the length of the cone is determined by the x velocity. 
+
+Particles also change colour as time passes after a particle is created, along with the particle's alpha value. This creates the effect of a flame burning more impurely over time changing from red to yellow as it moves away from the source and the alpha value change is the flame disappearing, when any particle's alpha value is below 0 its object is destroyed and removed so as to not slow down the system.
+
+### Summary
+This project utilises procedural generation, collision detection, particle simulation, recursion and more to create an adaptation of the game Defender from 1981, with its art style borrowing from the game FEZ.
