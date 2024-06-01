@@ -27,7 +27,8 @@ var threshold;
 function setup() {
   we = 700
   he = 400
-  createCanvas(we, he);
+  createCanvas(windowWidth, windowHeight);
+
   for (var l = 0; l < 280; l++) {
     let s = new Star(0, 700, 0, 400)
     stars.push(s)
